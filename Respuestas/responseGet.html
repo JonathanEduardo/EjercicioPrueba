@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Laravel</title>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+        <!-- Styles -->
+        <style>
+            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}}
+        </style>
+
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" rel="stylesheet">
+
+        <style>
+            body {
+                font-family: 'Nunito', sans-serif;
+            }
+        </style>
+         <!-- Livewire Styles -->
+<style>
+    [wire\:loading], [wire\:loading\.delay], [wire\:loading\.inline-block], [wire\:loading\.inline], [wire\:loading\.block], [wire\:loading\.flex], [wire\:loading\.table], [wire\:loading\.grid] {
+        display: none;
+    }
+
+    [wire\:offline] {
+        display: none;
+    }
+
+    [wire\:dirty]:not(textarea):not(input):not(select) {
+        display: none;
+    }
+
+    input:-webkit-autofill, select:-webkit-autofill, textarea:-webkit-autofill {
+        animation-duration: 50000s;
+        animation-name: livewireautofill;
+    }
+
+    @keyframes livewireautofill { from {} }
+</style>
+    </head>
+    <body class="antialiased">
+       <div wire:id="dvweQxOOmyDYU7mfsyqZ" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;dvweQxOOmyDYU7mfsyqZ&quot;,&quot;name&quot;:&quot;purchase-order&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;path&quot;:&quot;\/&quot;,&quot;method&quot;:&quot;GET&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;619939b7&quot;,&quot;data&quot;:{&quot;folio&quot;:null,&quot;date&quot;:&quot;2021-03-13&quot;,&quot;idVendor&quot;:0,&quot;comment&quot;:null,&quot;idProduct&quot;:0,&quot;idOrder&quot;:null,&quot;accion&quot;:&quot;crear&quot;},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;d8cc89a20f2161e412fe33afe90fbb3dfe99e46ac2dd27ebc29ab9c54a28c66f&quot;}}">
+
+    <div class="container mx-auto px-4 mt-10" >
+        <div class="" >
+            <div class="flex flex-wrap md:flex-row w-3/5 m-auto ">
+                <div class="flex  w-full text-center  ">
+                    <p class="w-full mx-1 my-3 text-base font-xl text-blue-900 font-bold ">CREAR NUEVA ORDEN DE COMPRA</p>
+                    
+                </div>
+                <div class="flex flex-col w-1/2">
+                 
+                    <input wire:model='folio' placeholder="Folio" type="text" class="ml-3 my-1 border-b-2 border-gray-300 focus focus:border-gray-600 focus:outline-none text-base">
+                </div>
+                <div class="flex flex-col w-1/2">
+                    
+                    <input wire:model='date' type="date" class="ml-3 my-1 border-b-2 border-gray-300 focus focus:border-gray-600 focus:outline-none text-base">
+                </div>
+                <div class="flex flex-col w-1/2">
+              
+                    <select wire:model='idVendor' placeholder="Proveedor" class="border bg-white rounded outline-none ml-3 my-1 border-b-2 border-gray-300 focus focus:border-gray-600 focus:outline-none text-base ">
+                        <option value="0">Selecciona un Proveedor</option>
+                                               <option value="1">Dietrich-Morissette</option>
+                                              <option value="2">Von LLC</option>
+                                              <option value="3">VonRueden, Fahey and Hegmann</option>
+                                              <option value="4">Kuhlman and Sons</option>
+                                              <option value="5">Gleason, Gibson and Towne</option>
+                                              <option value="6">Schaefer PLC</option>
+                                              <option value="7">O&#039;Connell, Stracke and D&#039;Amore</option>
+                                              <option value="8">Kuphal-Walter</option>
+                                              <option value="9">Trantow, Kris and Gleason</option>
+                                              <option value="10">Wehner Inc</option>
+                                              <option value="11">Auer LLC</option>
+                                              <option value="12">Gottlieb, Rolfson and Stokes</option>
+                                              <option value="13">Haley-Thompson</option>
+                                              <option value="14">Yundt-VonRueden</option>
+                                              <option value="15">Stiedemann, Grady and Padberg</option>
+                                              <option value="16">Leannon LLC</option>
+                                              <option value="17">Little, Walter and Watsica</option>
+                                              <option value="18">Nolan and Sons</option>
+                                              <option value="19">Nienow, Runte and Howe</option>
+                                              <option value="20">McDermott Ltd</option>
+                                              <option value="21">Hammes-Deckow</option>
+                                              <option value="22">Kuhlman, Lubowitz and Little</option>
+                                              <option value="23">Weissnat, Nader and Mante</option>
+                                              <option value="24">Rosenbaum, Ortiz and Gottlieb</option>
+                                              <option value="25">Collier LLC</option>
+                                              <option value="26">Buckridge Group</option>
+                                              <option value="27">Lakin-Harvey</option>
+                                              <option value="28">Kertzmann, Fahey and Towne</option>
+                                              <option value="29">Hirthe-Kunde</option>
+                                              <option value="30">Welch-Kautzer</option>
+                                   
+                    </select>
+
+
+                  
+                </div>
+                <div class="flex flex-col w-1/2">
+                  
+                    <input wire:model='comment' placeholder="Comentarios" type="text" class="ml-3 my-1 border-b-2 border-gray-300 focus focus:border-gray-600 focus:outline-none text-base">
+                </div>
+                <div class="flex flex-col w-full">
+                    <label class="mx-3 text-base font-bold text-blue-900 mt-2" for="">PRODUCTOS</label>
+                    <select  wire:model='idProduct' class="border bg-white rounded outline-none ml-3 my-1 border-b-2 border-gray-300 focus focus:border-gray-600 focus:outline-none text-base ">
+                        <option value="0">Selecciona un Productor</option>
+                                                <option value="1">Quam fugiat veritatis est sit dolorum vitae odio pariatur. Quis nemo sapiente nam voluptatem ipsam fugiat quae. Quisquam odit est doloremque laudantium aut occaecati dolore.</option>
+                                                <option value="2">Ullam sed nihil facilis eum qui. Asperiores alias doloribus et voluptates. Aut ut voluptatum qui voluptas et delectus adipisci.</option>
+                                                <option value="3">Rem inventore aliquam recusandae quibusdam modi sunt quia quis. Qui et nihil praesentium. Dolorum molestiae quis eligendi commodi in reiciendis.</option>
+                                                <option value="4">Sequi ut praesentium et et doloribus. Aliquam sit neque eveniet consectetur voluptatem aliquam. Expedita possimus quo sunt architecto a.</option>
+                                                <option value="5">Dignissimos non vitae et architecto molestias. Ipsum reiciendis sapiente consequuntur fugiat similique. Inventore eos porro ipsa laboriosam voluptatibus ullam. Deserunt autem ea qui quam.</option>
+                                                <option value="6">Quis deserunt blanditiis quis qui quo sint debitis voluptatibus. Ut sed ut sequi tenetur. Inventore qui doloremque et dolorum assumenda omnis. Quo voluptatum neque qui quisquam commodi sed.</option>
+                                                <option value="7">Ab ut eaque voluptatem omnis dolor. Harum repellat quod qui non nesciunt. Commodi maiores et repellat cupiditate distinctio quibusdam. Praesentium est vitae iusto tempore officia dolore cumque.</option>
+                                                <option value="8">Consequatur dolore sunt molestiae perspiciatis maiores beatae nobis. Aut odit quo consectetur et consequuntur rerum nulla. Ut nihil quia omnis minus. Aut maxime reprehenderit et sit amet totam neque omnis.</option>
+                                                <option value="9">Laboriosam aspernatur libero officia nihil officiis ut. Ut quis et sed aut voluptates repellendus. Nam similique omnis fugit recusandae.</option>
+                                                <option value="10">Distinctio pariatur dignissimos ipsam eos dolores explicabo et. Praesentium vel iste sint nam. Sit voluptatibus eaque totam suscipit cupiditate voluptas.</option>
+                                                <option value="11">Necessitatibus dolore aspernatur doloribus enim et nihil. Asperiores sapiente quis ipsa commodi sequi. At excepturi animi ut non sunt accusantium. Doloremque ut qui non molestiae et natus nihil. Id et officiis dolor sequi.</option>
+                                                <option value="12">Voluptatem pariatur est doloremque officiis harum nemo. Voluptates omnis perferendis laboriosam totam quas sequi. Fugiat cumque perspiciatis dolorem error est iste dolor.</option>
+                                                <option value="13">Incidunt explicabo est sed ipsam. Ea corporis ratione eos sit. Ea asperiores ducimus ipsa commodi numquam et.</option>
+                                                <option value="14">Nesciunt non et dignissimos veniam. Nulla aperiam deleniti sit est sit. Nam voluptatum culpa incidunt quisquam labore.</option>
+                                                <option value="15">Cumque aspernatur perspiciatis dolorum ducimus. Est perspiciatis aperiam eum aliquid praesentium fuga quas totam. Voluptatem ea culpa optio voluptates ipsum eaque.</option>
+                                                <option value="16">Neque hic ut distinctio dolor molestiae. Quisquam eos ullam ratione autem doloribus iure nisi labore. Laborum officiis voluptatum labore dolorem.</option>
+                                                <option value="17">Minima autem qui nobis sit esse optio. Earum possimus eum rerum distinctio quae quasi dolores. Expedita ipsa aut est soluta.</option>
+                                                <option value="18">Libero quasi et dignissimos. Odio accusantium est sapiente reprehenderit. Recusandae facere est sint alias corporis.</option>
+                                                <option value="19">Et minima temporibus voluptas nesciunt et delectus. Eos nobis praesentium suscipit neque repellendus porro. Est nihil commodi rerum saepe vel itaque nemo. Delectus sint sit eius sint dolore.</option>
+                                                <option value="20">Quisquam tempore et voluptatem sint architecto. Voluptate vel tempore mollitia nam labore iure non. Incidunt sint fugiat nihil. Necessitatibus odit est asperiores nisi.</option>
+                                                <option value="21">Est laborum doloremque laboriosam sit rerum. Labore animi consectetur illo. A illum et dolores. Asperiores occaecati iste ducimus sit consequatur libero voluptatem neque.</option>
+                                                <option value="22">Qui esse voluptates aut tempore odit quos odit qui. Voluptatibus voluptate voluptas eum. Voluptatem qui quaerat et nihil eligendi molestias praesentium.</option>
+                                                <option value="23">Qui voluptas impedit est nisi aut. Inventore possimus fuga quaerat exercitationem iusto et. Maiores nihil atque repellendus quia nisi doloremque odio.</option>
+                                                <option value="24">Dolores et autem expedita sunt sunt. Nostrum aperiam aut id sed nulla velit. Quod deserunt a enim eos aliquam nihil non sunt.</option>
+                                                <option value="25">Voluptatem eum non sit nisi voluptatem. Minima neque at possimus et quibusdam facere et. Et debitis in voluptatibus ut.</option>
+                                                <option value="26">Tenetur quibusdam autem laudantium inventore maiores voluptates omnis. Reprehenderit illum et sit aut eius eum delectus. Aut illo laboriosam corrupti.</option>
+                                                <option value="27">Commodi fuga sint non veniam sit. Quas hic minima quis blanditiis ut. Dicta voluptatum ut laboriosam optio occaecati nihil qui.</option>
+                                                <option value="28">Error est minus id delectus blanditiis velit. Quasi nemo sint quis est debitis. Cumque et voluptatem quis possimus illo hic laudantium. Labore amet nulla dolores enim.</option>
+                                                <option value="29">Ut in excepturi aut sit velit eos. Ex odit corporis ut perferendis natus dolores nihil omnis. Officiis eum id aliquam et.</option>
+                                                <option value="30">Quia voluptas vitae sint iste. Voluptatem voluptas nostrum voluptatem a eligendi reprehenderit. Necessitatibus consequuntur iste porro esse maiores.</option>
+                                                <option value="31">Et quo eum eum fugiat optio fugiat. Voluptatum accusantium temporibus dolor omnis tenetur aut. Voluptas molestias nostrum fugiat officia nam eaque.</option>
+                                                <option value="32">Vitae tempora iste et aliquam nihil. Reprehenderit magni harum necessitatibus reiciendis voluptas beatae.</option>
+                                                <option value="33">Sunt sint quia impedit quia occaecati quis. Aut minima magnam est dolor tenetur.</option>
+                                                <option value="34">Quo totam ab suscipit fugit in. Quia explicabo impedit molestias et sint hic.</option>
+                                                <option value="35">Saepe rem dolorum enim nisi. Debitis delectus nam reiciendis ad at. Facilis ut vitae occaecati fugit.</option>
+                                                <option value="36">Quae officiis in saepe aut. Esse quos assumenda velit quam itaque. Accusamus nihil natus molestiae nihil. Nemo aperiam ea est dignissimos debitis.</option>
+                                                <option value="37">Quia cumque quae maiores nihil rerum amet sed sed. Officiis voluptatem aut in et velit sunt nisi. Et voluptatem cum aliquam est accusamus. Provident qui impedit dicta quam quia ex reiciendis.</option>
+                                                <option value="38">Nemo ullam quibusdam itaque sint. Sunt illum et dolore. Aut illum aperiam et deleniti quae.</option>
+                                                <option value="39">Et doloremque debitis beatae nobis aut. Explicabo provident voluptate voluptas odit minima facere. Veniam beatae dicta odio aut.</option>
+                                                <option value="40">Optio tempore quaerat autem dolores et amet repellendus. Porro cumque reiciendis quae quo culpa eum blanditiis quos. Ut est dolor perspiciatis dignissimos reiciendis unde. Provident quibusdam nihil amet neque.</option>
+                                                <option value="41">Consectetur molestiae saepe impedit harum fugiat perspiciatis. Deleniti reprehenderit sit animi aperiam maiores aut. Ratione sunt provident adipisci nemo eveniet. Accusamus sit laboriosam dolorem hic maiores quia sapiente. Nihil accusantium neque veritatis maiores.</option>
+                                                <option value="42">Molestias aliquam nostrum labore voluptatem voluptates quia quis iure. Qui ipsum non animi ratione dolorem dignissimos. Voluptatem qui vitae debitis ad in nostrum enim provident. Eum amet a minus officiis et autem quia. Dolor architecto sed expedita sunt amet corporis.</option>
+                                                <option value="43">Quia quo et ea fugit amet iure veniam in. Et est ratione non aperiam et. Amet est non quam. Nostrum consequuntur maiores nesciunt eum quod fugiat at.</option>
+                                                <option value="44">Et et et pariatur laborum dolor ut omnis. Rerum aut consectetur veritatis quidem. Nemo repudiandae sed et quibusdam dignissimos sint.</option>
+                                                <option value="45">Dicta perferendis nesciunt ut. Eum iure sit rem vero quo eveniet molestiae. Officia alias ratione quae numquam error quos. Expedita ea magni libero minus nulla voluptatibus id.</option>
+                                                <option value="46">Nulla sit dicta et pariatur ratione. Cumque totam ab omnis ipsa quidem. Inventore blanditiis maxime saepe voluptatem vero.</option>
+                                                <option value="47">Eos eum ut rem voluptas ullam reiciendis maiores. Non sed qui sit rerum. Voluptatem praesentium dolore reiciendis sint dolorem modi quis. Reprehenderit eum veritatis in. Deserunt delectus iste eligendi asperiores totam et nisi et.</option>
+                                                <option value="48">Quibusdam est iusto veniam voluptas cumque nobis veniam. Et nihil vero velit similique et recusandae minus nihil. Ad id velit pariatur id deserunt.</option>
+                                                <option value="49">Sit aut voluptas maiores excepturi quae ratione qui. Quos adipisci repellendus rem vel et. Tempore vitae atque sit molestias animi illum illum. At et vitae quod et iure.</option>
+                                                <option value="50">Ullam qui et et doloremque aperiam dignissimos dolorum. Aut corporis sequi eius accusamus nostrum. Et natus sit itaque ullam officiis. Et incidunt recusandae est consequatur aliquam officiis.</option>
+                                            </select>
+
+
+                </div>
+
+                <div class="flex  w-full text-right">
+                   
+                                        <p wire:click="create" class="w-full mx-1 my-3 text-base font-xl text-blue-900 font-bold hover:underline cursor-pointer ">AGREGAR</p>
+
+                    
+            
+                
+                </div>
+              
+            </div>
+        </div>
+       
+        <div class="overflow-x-auto mt-10">
+            <div class="min-w-screen min-h-screen  flex  justify-center  font-sans overflow-hidden">
+                <div class="w-full lg:w-5/6">
+                    <div class="bg-white shadow-md rounded my-6">
+                        <table class="min-w-max w-full table-auto">
+                            <thead>
+                                <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                                    <th class="py-3 px-6 text-left">FOLIO</th>
+                                    <th class="py-3 px-6 text-left">PROVEEDOR</th>
+                                    <th class="py-3 px-6 text-left">FECHA</th>
+                                    <th class="py-3 px-6 text-center">TOTAL</th>
+                                    <th class="py-3 px-6 text-center">ESTATUS</th>
+                                    <th class="py-3 px-6 text-center">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-600 text-sm font-light">
+                                                                                                
+                                    <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                        <td class="py-3 px-6 text-left whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <span class="font-medium">6X5CVXedit</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-6 text-center">
+                                            <div class="flex items-center">
+                                                <span>Gleason, Gibson and Towne</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-6 text-center">
+                                            <div class="flex items-center">
+                                                <span>2021-03-13</span>
+                                            </div>
+                                        </td>
+                                    
+                                        <td class="py-3 px-6 text-center">
+                                            9
+                                        </td>
+
+                                        <td class="py-3 px-6 text-center">
+                                            <span wire:click="cambiaEstado([{&quot;idOrder&quot;:1,&quot;idVendor&quot;:5,&quot;idProduct&quot;:4,&quot;date&quot;:&quot;2021-03-13&quot;,&quot;foli&quot;:&quot;6X5CVXedit&quot;,&quot;comments&quot;:&quot;NA&quot;,&quot;status&quot;:&quot;Pendiente&quot;,&quot;name&quot;:&quot;Gleason, Gibson and Towne&quot;,&quot;phoneNum&quot;:&quot;1-251-330-6514&quot;,&quot;address&quot;:&quot;7727 Erdman Ways\nWest Careyport, MN 80835-4745&quot;,&quot;updated_at&quot;:&quot;2021-03-13 05:19:38&quot;,&quot;created_at&quot;:&quot;2021-03-13 05:19:38&quot;,&quot;sku&quot;:97,&quot;description&quot;:&quot;Sequi ut praesentium et et doloribus. Aliquam sit neque eveniet consectetur voluptatem aliquam. Expedita possimus quo sunt architecto a.&quot;,&quot;amount&quot;:58,&quot;price&quot;:9},{&quot;idOrder&quot;:2,&quot;idVendor&quot;:8,&quot;idProduct&quot;:7,&quot;date&quot;:&quot;2021-03-28&quot;,&quot;foli&quot;:&quot;XDF6FDS6FDSF&quot;,&quot;comments&quot;:&quot;mE GUSTA&quot;,&quot;status&quot;:&quot;Rechazado&quot;,&quot;name&quot;:&quot;Kuphal-Walter&quot;,&quot;phoneNum&quot;:&quot;(535) 265-2248&quot;,&quot;address&quot;:&quot;83324 Hane Tunnel Apt. 681\nJovanishire, IN 55487-6969&quot;,&quot;updated_at&quot;:&quot;2021-03-13 05:19:38&quot;,&quot;created_at&quot;:&quot;2021-03-13 05:19:38&quot;,&quot;sku&quot;:62,&quot;description&quot;:&quot;Ab ut eaque voluptatem omnis dolor. Harum repellat quod qui non nesciunt. Commodi maiores et repellat cupiditate distinctio quibusdam. Praesentium est vitae iusto tempore officia dolore cumque.&quot;,&quot;amount&quot;:93,&quot;price&quot;:2}],0)"   class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs cursor-pointer"> Pendiente</span>
+                                        </td>
+
+                                        <td class="py-3 px-6 text-center">
+                                            <a wire:click="edit([{&quot;idOrder&quot;:1,&quot;idVendor&quot;:5,&quot;idProduct&quot;:4,&quot;date&quot;:&quot;2021-03-13&quot;,&quot;foli&quot;:&quot;6X5CVXedit&quot;,&quot;comments&quot;:&quot;NA&quot;,&quot;status&quot;:&quot;Pendiente&quot;,&quot;name&quot;:&quot;Gleason, Gibson and Towne&quot;,&quot;phoneNum&quot;:&quot;1-251-330-6514&quot;,&quot;address&quot;:&quot;7727 Erdman Ways\nWest Careyport, MN 80835-4745&quot;,&quot;updated_at&quot;:&quot;2021-03-13 05:19:38&quot;,&quot;created_at&quot;:&quot;2021-03-13 05:19:38&quot;,&quot;sku&quot;:97,&quot;description&quot;:&quot;Sequi ut praesentium et et doloribus. Aliquam sit neque eveniet consectetur voluptatem aliquam. Expedita possimus quo sunt architecto a.&quot;,&quot;amount&quot;:58,&quot;price&quot;:9},{&quot;idOrder&quot;:2,&quot;idVendor&quot;:8,&quot;idProduct&quot;:7,&quot;date&quot;:&quot;2021-03-28&quot;,&quot;foli&quot;:&quot;XDF6FDS6FDSF&quot;,&quot;comments&quot;:&quot;mE GUSTA&quot;,&quot;status&quot;:&quot;Rechazado&quot;,&quot;name&quot;:&quot;Kuphal-Walter&quot;,&quot;phoneNum&quot;:&quot;(535) 265-2248&quot;,&quot;address&quot;:&quot;83324 Hane Tunnel Apt. 681\nJovanishire, IN 55487-6969&quot;,&quot;updated_at&quot;:&quot;2021-03-13 05:19:38&quot;,&quot;created_at&quot;:&quot;2021-03-13 05:19:38&quot;,&quot;sku&quot;:62,&quot;description&quot;:&quot;Ab ut eaque voluptatem omnis dolor. Harum repellat quod qui non nesciunt. Commodi maiores et repellat cupiditate distinctio quibusdam. Praesentium est vitae iusto tempore officia dolore cumque.&quot;,&quot;amount&quot;:93,&quot;price&quot;:2}],0)"   title="Editar" class="text-blue-700 cursor-pointer" >
+                                                <i class="fa fa-edit"></i>
+                                            </a> &nbsp;
+                                            <a wire:click="delete([{&quot;idOrder&quot;:1,&quot;idVendor&quot;:5,&quot;idProduct&quot;:4,&quot;date&quot;:&quot;2021-03-13&quot;,&quot;foli&quot;:&quot;6X5CVXedit&quot;,&quot;comments&quot;:&quot;NA&quot;,&quot;status&quot;:&quot;Pendiente&quot;,&quot;name&quot;:&quot;Gleason, Gibson and Towne&quot;,&quot;phoneNum&quot;:&quot;1-251-330-6514&quot;,&quot;address&quot;:&quot;7727 Erdman Ways\nWest Careyport, MN 80835-4745&quot;,&quot;updated_at&quot;:&quot;2021-03-13 05:19:38&quot;,&quot;created_at&quot;:&quot;2021-03-13 05:19:38&quot;,&quot;sku&quot;:97,&quot;description&quot;:&quot;Sequi ut praesentium et et doloribus. Aliquam sit neque eveniet consectetur voluptatem aliquam. Expedita possimus quo sunt architecto a.&quot;,&quot;amount&quot;:58,&quot;price&quot;:9},{&quot;idOrder&quot;:2,&quot;idVendor&quot;:8,&quot;idProduct&quot;:7,&quot;date&quot;:&quot;2021-03-28&quot;,&quot;foli&quot;:&quot;XDF6FDS6FDSF&quot;,&quot;comments&quot;:&quot;mE GUSTA&quot;,&quot;status&quot;:&quot;Rechazado&quot;,&quot;name&quot;:&quot;Kuphal-Walter&quot;,&quot;phoneNum&quot;:&quot;(535) 265-2248&quot;,&quot;address&quot;:&quot;83324 Hane Tunnel Apt. 681\nJovanishire, IN 55487-6969&quot;,&quot;updated_at&quot;:&quot;2021-03-13 05:19:38&quot;,&quot;created_at&quot;:&quot;2021-03-13 05:19:38&quot;,&quot;sku&quot;:62,&quot;description&quot;:&quot;Ab ut eaque voluptatem omnis dolor. Harum repellat quod qui non nesciunt. Commodi maiores et repellat cupiditate distinctio quibusdam. Praesentium est vitae iusto tempore officia dolore cumque.&quot;,&quot;amount&quot;:93,&quot;price&quot;:2}],0)"   title="Editar" class="text-red-500 cursor-pointer" >
+                                                <i class="fas fa-trash-alt"></i>
+                                            </a> &nbsp;
+                                           
+                                           
+                                           
+                                         </td>
+                                    </tr>
+                                                                                                     
+                                    <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                        <td class="py-3 px-6 text-left whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <span class="font-medium">XDF6FDS6FDSF</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-6 text-center">
+                                            <div class="flex items-center">
+                                                <span>Kuphal-Walter</span>
+                                            </div>
+                                        </td>
+                                        <td class="py-3 px-6 text-center">
+                                            <div class="flex items-center">
+                                                <span>2021-03-28</span>
+                                            </div>
+                                        </td>
+                                    
+                                        <td class="py-3 px-6 text-center">
+                                            2
+                                        </td>
+
+                                        <td class="py-3 px-6 text-center">
+                                            <span wire:click="cambiaEstado([{&quot;idOrder&quot;:1,&quot;idVendor&quot;:5,&quot;idProduct&quot;:4,&quot;date&quot;:&quot;2021-03-13&quot;,&quot;foli&quot;:&quot;6X5CVXedit&quot;,&quot;comments&quot;:&quot;NA&quot;,&quot;status&quot;:&quot;Pendiente&quot;,&quot;name&quot;:&quot;Gleason, Gibson and Towne&quot;,&quot;phoneNum&quot;:&quot;1-251-330-6514&quot;,&quot;address&quot;:&quot;7727 Erdman Ways\nWest Careyport, MN 80835-4745&quot;,&quot;updated_at&quot;:&quot;2021-03-13 05:19:38&quot;,&quot;created_at&quot;:&quot;2021-03-13 05:19:38&quot;,&quot;sku&quot;:97,&quot;description&quot;:&quot;Sequi ut praesentium et et doloribus. Aliquam sit neque eveniet consectetur voluptatem aliquam. Expedita possimus quo sunt architecto a.&quot;,&quot;amount&quot;:58,&quot;price&quot;:9},{&quot;idOrder&quot;:2,&quot;idVendor&quot;:8,&quot;idProduct&quot;:7,&quot;date&quot;:&quot;2021-03-28&quot;,&quot;foli&quot;:&quot;XDF6FDS6FDSF&quot;,&quot;comments&quot;:&quot;mE GUSTA&quot;,&quot;status&quot;:&quot;Rechazado&quot;,&quot;name&quot;:&quot;Kuphal-Walter&quot;,&quot;phoneNum&quot;:&quot;(535) 265-2248&quot;,&quot;address&quot;:&quot;83324 Hane Tunnel Apt. 681\nJovanishire, IN 55487-6969&quot;,&quot;updated_at&quot;:&quot;2021-03-13 05:19:38&quot;,&quot;created_at&quot;:&quot;2021-03-13 05:19:38&quot;,&quot;sku&quot;:62,&quot;description&quot;:&quot;Ab ut eaque voluptatem omnis dolor. Harum repellat quod qui non nesciunt. Commodi maiores et repellat cupiditate distinctio quibusdam. Praesentium est vitae iusto tempore officia dolore cumque.&quot;,&quot;amount&quot;:93,&quot;price&quot;:2}],1)"   class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs cursor-pointer"> Rechazado</span>
+                                        </td>
+
+                                        <td class="py-3 px-6 text-center">
+                                            <a wire:click="edit([{&quot;idOrder&quot;:1,&quot;idVendor&quot;:5,&quot;idProduct&quot;:4,&quot;date&quot;:&quot;2021-03-13&quot;,&quot;foli&quot;:&quot;6X5CVXedit&quot;,&quot;comments&quot;:&quot;NA&quot;,&quot;status&quot;:&quot;Pendiente&quot;,&quot;name&quot;:&quot;Gleason, Gibson and Towne&quot;,&quot;phoneNum&quot;:&quot;1-251-330-6514&quot;,&quot;address&quot;:&quot;7727 Erdman Ways\nWest Careyport, MN 80835-4745&quot;,&quot;updated_at&quot;:&quot;2021-03-13 05:19:38&quot;,&quot;created_at&quot;:&quot;2021-03-13 05:19:38&quot;,&quot;sku&quot;:97,&quot;description&quot;:&quot;Sequi ut praesentium et et doloribus. Aliquam sit neque eveniet consectetur voluptatem aliquam. Expedita possimus quo sunt architecto a.&quot;,&quot;amount&quot;:58,&quot;price&quot;:9},{&quot;idOrder&quot;:2,&quot;idVendor&quot;:8,&quot;idProduct&quot;:7,&quot;date&quot;:&quot;2021-03-28&quot;,&quot;foli&quot;:&quot;XDF6FDS6FDSF&quot;,&quot;comments&quot;:&quot;mE GUSTA&quot;,&quot;status&quot;:&quot;Rechazado&quot;,&quot;name&quot;:&quot;Kuphal-Walter&quot;,&quot;phoneNum&quot;:&quot;(535) 265-2248&quot;,&quot;address&quot;:&quot;83324 Hane Tunnel Apt. 681\nJovanishire, IN 55487-6969&quot;,&quot;updated_at&quot;:&quot;2021-03-13 05:19:38&quot;,&quot;created_at&quot;:&quot;2021-03-13 05:19:38&quot;,&quot;sku&quot;:62,&quot;description&quot;:&quot;Ab ut eaque voluptatem omnis dolor. Harum repellat quod qui non nesciunt. Commodi maiores et repellat cupiditate distinctio quibusdam. Praesentium est vitae iusto tempore officia dolore cumque.&quot;,&quot;amount&quot;:93,&quot;price&quot;:2}],1)"   title="Editar" class="text-blue-700 cursor-pointer" >
+                                                <i class="fa fa-edit"></i>
+                                            </a> &nbsp;
+                                            <a wire:click="delete([{&quot;idOrder&quot;:1,&quot;idVendor&quot;:5,&quot;idProduct&quot;:4,&quot;date&quot;:&quot;2021-03-13&quot;,&quot;foli&quot;:&quot;6X5CVXedit&quot;,&quot;comments&quot;:&quot;NA&quot;,&quot;status&quot;:&quot;Pendiente&quot;,&quot;name&quot;:&quot;Gleason, Gibson and Towne&quot;,&quot;phoneNum&quot;:&quot;1-251-330-6514&quot;,&quot;address&quot;:&quot;7727 Erdman Ways\nWest Careyport, MN 80835-4745&quot;,&quot;updated_at&quot;:&quot;2021-03-13 05:19:38&quot;,&quot;created_at&quot;:&quot;2021-03-13 05:19:38&quot;,&quot;sku&quot;:97,&quot;description&quot;:&quot;Sequi ut praesentium et et doloribus. Aliquam sit neque eveniet consectetur voluptatem aliquam. Expedita possimus quo sunt architecto a.&quot;,&quot;amount&quot;:58,&quot;price&quot;:9},{&quot;idOrder&quot;:2,&quot;idVendor&quot;:8,&quot;idProduct&quot;:7,&quot;date&quot;:&quot;2021-03-28&quot;,&quot;foli&quot;:&quot;XDF6FDS6FDSF&quot;,&quot;comments&quot;:&quot;mE GUSTA&quot;,&quot;status&quot;:&quot;Rechazado&quot;,&quot;name&quot;:&quot;Kuphal-Walter&quot;,&quot;phoneNum&quot;:&quot;(535) 265-2248&quot;,&quot;address&quot;:&quot;83324 Hane Tunnel Apt. 681\nJovanishire, IN 55487-6969&quot;,&quot;updated_at&quot;:&quot;2021-03-13 05:19:38&quot;,&quot;created_at&quot;:&quot;2021-03-13 05:19:38&quot;,&quot;sku&quot;:62,&quot;description&quot;:&quot;Ab ut eaque voluptatem omnis dolor. Harum repellat quod qui non nesciunt. Commodi maiores et repellat cupiditate distinctio quibusdam. Praesentium est vitae iusto tempore officia dolore cumque.&quot;,&quot;amount&quot;:93,&quot;price&quot;:2}],1)"   title="Editar" class="text-red-500 cursor-pointer" >
+                                                <i class="fas fa-trash-alt"></i>
+                                            </a> &nbsp;
+                                           
+                                           
+                                           
+                                         </td>
+                                    </tr>
+                                                                                                 </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+</div>
+        <!-- Livewire Scripts -->
+
+<script src="/livewire/livewire.js?id=25f025805c3c370f7e87" data-turbo-eval="false" data-turbolinks-eval="false"></script>
+<script data-turbo-eval="false" data-turbolinks-eval="false">
+    if (window.livewire) {
+	    console.warn('Livewire: It looks like Livewire\'s @livewireScripts JavaScript assets have already been loaded. Make sure you aren\'t loading them twice.')
+	}
+
+    window.livewire = new Livewire();
+    window.livewire.devTools(true);
+    window.Livewire = window.livewire;
+    window.livewire_app_url = '';
+    window.livewire_token = 'hzlSjv61HNq9TyqmRpxmIu0udWKaShjx8zHGSgHV';
+
+	/* Make sure Livewire loads first. */
+	if (window.Alpine) {
+	    /* Defer showing the warning so it doesn't get buried under downstream errors. */
+	    document.addEventListener("DOMContentLoaded", function () {
+	        setTimeout(function() {
+	            console.warn("Livewire: It looks like AlpineJS has already been loaded. Make sure Livewire\'s scripts are loaded before Alpine.\\n\\n Reference docs for more info: http://laravel-livewire.com/docs/alpine-js")
+	        })
+	    });
+	}
+
+	/* Make Alpine wait until Livewire is finished rendering to do its thing. */
+    window.deferLoadingAlpine = function (callback) {
+        window.addEventListener('livewire:load', function () {
+            callback();
+        });
+    };
+
+    document.addEventListener("DOMContentLoaded", function () {
+        window.livewire.start();
+    });
+</script>
+    </body>
+</html>
