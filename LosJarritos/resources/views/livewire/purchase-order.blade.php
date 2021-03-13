@@ -10,20 +10,30 @@
                 <div class="flex flex-col w-1/2">
                  
                     <input wire:model='folio' placeholder="Folio" type="text" class="ml-3 my-1 border-b-2 border-gray-300 focus focus:border-gray-600 focus:outline-none text-base">
+                    @error('folio')
+                        <p class="my-0 mx-3 text-red-500 rounded w-auto text-sm bold"> {{$message}}</p>
+                    @enderror
                 </div>
                 <div class="flex flex-col w-1/2">
                     
                     <input wire:model='date' type="date" class="ml-3 my-1 border-b-2 border-gray-300 focus focus:border-gray-600 focus:outline-none text-base">
+                    @error('date')
+                    <p class="my-0 mx-3 text-red-500 rounded w-auto text-sm bold"> {{$message}}</p>
+                @enderror
                 </div>
                 <div class="flex flex-col w-1/2">
               
                     <select wire:model='idVendor' placeholder="Proveedor" class="border bg-white rounded outline-none ml-3 my-1 border-b-2 border-gray-300 focus focus:border-gray-600 focus:outline-none text-base ">
-                        <option value="0">Selecciona un Proveedor</option>
+                        <option >Selecciona un Proveedor</option>
                         @foreach ($vendor as $v)
                        <option value="{{$v->idVendor}}">{{$v->name}}</option>
                        @endforeach
-            
+                   
                     </select>
+
+                    @error('idVendor')
+                    <p class="my-0 mx-3 text-red-500 rounded w-auto text-sm bold"> {{$message}}</p>
+                @enderror
 
 
                   
@@ -31,15 +41,21 @@
                 <div class="flex flex-col w-1/2">
                   
                     <input wire:model='comment' placeholder="Comentarios" type="text" class="ml-3 my-1 border-b-2 border-gray-300 focus focus:border-gray-600 focus:outline-none text-base">
+                    @error('comment')
+                    <p class="my-0 mx-3 text-red-500 rounded w-auto text-sm bold"> {{$message}}</p>
+                @enderror
                 </div>
                 <div class="flex flex-col w-full">
                     <label class="mx-3 text-base font-bold text-blue-900 mt-2" for="">PRODUCTOS</label>
                     <select  wire:model='idProduct' class="border bg-white rounded outline-none ml-3 my-1 border-b-2 border-gray-300 focus focus:border-gray-600 focus:outline-none text-base ">
-                        <option value="0">Selecciona un Productor</option>
+                        <option >Selecciona un Productor</option>
                         @foreach ($product as $p)
                         <option value="{{$p->idProduct}}">{{$p->description}}</option>
                         @endforeach
                     </select>
+                    @error('idProduct')
+                    <p class="my-0 mx-3 text-red-500 rounded w-auto text-sm bold"> {{$message}}</p>
+                @enderror
 
 
                 </div>
@@ -66,7 +82,9 @@
         <div class="overflow-x-auto mt-10">
             <div class="min-w-screen min-h-screen  flex  justify-center  font-sans overflow-hidden">
                 <div class="w-full lg:w-5/6">
-                    <div class="bg-white shadow-md rounded my-6">
+                    <p class="text-indigo-700 bold text-sm"> Da click sobre el estatus para cambiarlo </p>
+                    <div class="bg-white shadow-md rounded my-4">
+                       
                         <table class="min-w-max w-full table-auto">
                             <thead>
                                 <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">

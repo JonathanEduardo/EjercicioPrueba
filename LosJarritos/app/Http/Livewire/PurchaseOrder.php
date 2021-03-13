@@ -12,8 +12,21 @@ use \Carbon\Carbon;
 
 class PurchaseOrder extends Component
 {
-    public $folio, $date = '2021-03-13', $idVendor=0,  $comment, $idProduct=0;
+    public $folio, $date, $idVendor,  $comment, $idProduct;
     public $idOrder;
+    protected $rules = [
+        'folio' => 'required',
+        'idVendor' => 'required',
+        'comment' => 'required',
+        'idProduct' => 'required',
+        'date' => 'required',
+    ];
+
+    protected $validationAttributes  = [
+        'idVendor' => 'select a vendor',
+        'idProduct' => 'select a product',
+      
+    ];
    
     public  $accion = "crear";
 
@@ -30,6 +43,8 @@ class PurchaseOrder extends Component
     }
 
     public function create(){
+
+        $this->validate();
 
         DB::table('purchaseorders')->insert([
             'idVendor' => $this->idVendor,
@@ -53,6 +68,8 @@ class PurchaseOrder extends Component
     }
 
     public function update( ){
+        
+        $this->validate();
         DB::table('purchaseorders')
         ->where('idOrder',$this->idOrder)
         ->update([
